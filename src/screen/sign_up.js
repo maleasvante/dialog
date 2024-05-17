@@ -7,13 +7,15 @@ import {
   StyleSheet,
 } from "react-native";
 
-const Sign_up = () => {
+const Sign_up = ({navigation}) => {
   const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
-      <Text>Voltar</Text>
-      <Text>Crie sua senha</Text>
+     <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.goBack}>{'< Voltar'}</Text>
+        </TouchableOpacity>
+      <Text style={styles.text}>Crie sua senha</Text>
       <TextInput
         placeholder="Senha"
         value={password}
@@ -27,8 +29,8 @@ const Sign_up = () => {
         <Text style={styles.buttonText}>Crie sua conta</Text>
       </TouchableOpacity>
     </View>
-  );
-};
+  ),
+},
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +39,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+  },
+  goBack: {
+    fontSize: 18,
+    textAlign: "left",
+  },
+  text: {
+    fontSize: 18,
+    marginBottom: 5,
+    textAlign: "center",
   },
   input: {
     height: 40,
