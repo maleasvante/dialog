@@ -7,14 +7,17 @@ import {
   StyleSheet,
 } from "react-native";
 
-const Sign_up = ({navigation}) => {
+const Sign_up = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
-     <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Text style={styles.goBack}>{'< Voltar'}</Text>
-        </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.touchableOpacity}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={styles.back}>{"< Voltar"}</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Crie sua senha</Text>
       <TextInput
         placeholder="Senha"
@@ -24,13 +27,13 @@ const Sign_up = ({navigation}) => {
         minLength={8}
         style={styles.input}
       />
-      <Text>Use no mínimo 8 caracteres</Text>
+      <Text style={styles.instructions}>Use no mínimo 8 caracteres</Text>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Crie sua conta</Text>
       </TouchableOpacity>
     </View>
-  ),
-},
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +43,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 20,
   },
-  goBack: {
+  touchableOpacity: {
+    position: "absolute",
+    top: "5%",
+    left: "5%",
+  },
+  back: {
     fontSize: 18,
     textAlign: "left",
   },
@@ -55,11 +63,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     paddingHorizontal: 10,
-    marginBottom: 15,
+    marginBottom: 2,
     width: "100%",
     backgroundColor: "#B9B0D9",
     textAlign: "center",
     fontSize: 18,
+  },
+  instructions: {
+    fontSize: 12,
+    marginBottom: 7,
   },
   button: {
     backgroundColor: "#7D0062",
