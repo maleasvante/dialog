@@ -1,3 +1,4 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import {
   View,
@@ -6,9 +7,25 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
+import { auth, db } from "../services/firebaseConfig";
+import { setDoc, doc, Timestamp } from "firebase/firestore";
 
-const Sign_up = ({ navigation }) => {
+const Sign_up = ({ route, navigation }) => {
   const [password, setPassword] = useState("");
+  const { email } = route.params;
+
+  async function cadastrouser() {
+    if (password.length < 6) {
+      Alert.alert("A senha precisa de no mínimo 6 caracteres");
+      return;
+    }
+
+    await createUserWithEmailAndPassword(auth, email, password);
+    const response = await setDoc(doc(db, "usuarios", email), {
+      created_at: Timestamp.now(),
+    });
+    console.log(response);
+  }
 
   return (
     <View style={styles.container}>
@@ -27,8 +44,8 @@ const Sign_up = ({ navigation }) => {
         minLength={8}
         style={styles.input}
       />
-      <Text style={styles.instructions}>Use no mínimo 8 caracteres</Text>
-      <TouchableOpacity style={styles.button}>
+      <Text style={styles.instructions}>Use no mínimo 6 caracteres</Text>
+      <TouchableOpacity style={styles.button} onPress={cadastrouser}>
         <Text style={styles.buttonText}>Crie sua conta</Text>
       </TouchableOpacity>
     </View>
