@@ -25,8 +25,10 @@ const Register_one = ({ navigation }) => {
           email: email,
         });
       } else {
-        alert("Usuario n encontrado");
-      }
+        navigation.navigate("sign_up", {
+          email: email,
+        });
+      }}
     } catch (err) {
       console.error(err);
     }
