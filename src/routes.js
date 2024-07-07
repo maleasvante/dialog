@@ -14,9 +14,9 @@ function Routes() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="sign_up" component={Sign_up} />
         <Stack.Screen name="Register_one" component={Register_one} />
         <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="sign_up" component={Sign_up} />
       </Stack.Navigator>
     </NavigationContainer>
   );
