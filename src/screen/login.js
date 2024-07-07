@@ -13,7 +13,9 @@ const Login = ({ route, navigation }) => {
   const [username, setUsername] = useState(email);
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    console.log("implementando função de logni");
+  };
 
   return (
     <View style={styles.container}>
