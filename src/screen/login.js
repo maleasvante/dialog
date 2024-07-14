@@ -1,3 +1,4 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -7,14 +8,19 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import { auth } from "../services/firebaseConfig";
 
 const Login = ({ route, navigation }) => {
   const { email } = route.params;
   const [username, setUsername] = useState(email);
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    console.log("implementando função de logni");
+  const handleLogin = async () => {
+    if (password?.length < 6) {
+      return Alert.alert("Senha precisa ter no minimo 6 digitos");
+    }
+    await signInWithEmailAndPassword(auth, email, password);
+    navigation.navigate("App");
   };
 
   return (
