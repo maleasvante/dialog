@@ -28,7 +28,7 @@ const Register_one = ({ navigation }) => {
         navigation.navigate("sign_up", {
           email: email,
         });
-      }}
+      }
     } catch (err) {
       console.error(err);
     }
