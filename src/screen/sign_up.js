@@ -24,7 +24,7 @@ const Sign_up = ({ route, navigation }) => {
     const response = await setDoc(doc(db, "usuarios", email), {
       created_at: Timestamp.now(),
     });
-    console.log(response);
+    navigation.navigate('Quest_1');
   }
 
   return (
