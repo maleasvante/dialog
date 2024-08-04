@@ -10,7 +10,7 @@ import {
 import { auth, db } from "../services/firebaseConfig";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
 
-const Sign_up = ({ route, navigation }) => {
+const SingUp = ({ route, navigation }) => {
   const [password, setPassword] = useState("");
   const { email } = route.params;
 
@@ -24,7 +24,7 @@ const Sign_up = ({ route, navigation }) => {
     const response = await setDoc(doc(db, "usuarios", email), {
       created_at: Timestamp.now(),
     });
-    navigation.navigate('Quest_1');
+    navigation.navigate('quest_name');
   }
 
   return (
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Sign_up;
+export default SingUp;

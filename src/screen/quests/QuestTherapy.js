@@ -2,14 +2,14 @@ import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const quest_two = ({ navigation }) => {
+const QuestTherapy = ({ navigation }) => {
 
   const handleSubmit = async (tipoTerapiaInsulina) => {
     const dados = await AsyncStorage.getItem('dados');
     dados.tipo_terapia = tipoTerapiaInsulina;
     console.log(dados);
     await AsyncStorage.setItem('dados', JSON.stringify(dados));
-    navigation.navigate('Quest_3');
+    navigation.navigate('QuestTypeInsulin');
   }
 
   return (
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default quest_two;
+export default QuestTherapy;

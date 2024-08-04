@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const quest_three = ({ navigation }) => {
+const QuestTypeInsulin = ({ navigation }) => {
   const [selectedInsulin, setSelectedInsulin] = useState(null);
 
   const handleInsulinPress = (insulin) => {
     setSelectedInsulin(insulin);
-    navigation.navigate('Quest_2');
+    navigation.navigate('App');
   };
 
   return (
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default quest_three;
+export default QuestTypeInsulin;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
-import { updateUser } from '../services/db';
+import { updateUser } from '../../services/db';
 
-const quest_one = ({ navigation }) => {
+const QuestName = ({ navigation }) => {
   const [name, setName] = useState('');
 
   const handleNameChange = (text) => {
@@ -14,7 +14,7 @@ const quest_one = ({ navigation }) => {
   const handleSubmit = async () => {
     const dadosJson = JSON.stringify({name});
     await AsyncStorage.setItem('dados', dadosJson);
-    navigation.navigate('Quest_2'); 
+    navigation.navigate('QuestAge'); 
   };
 
   return (
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default quest_one;
+export default QuestName;
