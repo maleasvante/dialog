@@ -12,6 +12,10 @@ import QuestAge from "./screen/quests/QuestAge";
 import QuestName from "./screen/quests/QuestName";
 import QuestTherapy from "./screen/quests/QuestTherapy";
 import QuestTypeInsulin from "./screen/quests/QuestTypeInsulin";
+import Quest5 from "./screen/quests/Quest5";
+import QuestInsulinCorrection from "./screen/quests/QuestInsulinCorrection";
+import QuestCarb from "./screen/quests/QuestCarb";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,6 +28,9 @@ function Routes() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="Quest5" component={Quest5} />
+        <Stack.Screen name="QuestCarb" component={QuestCarb} />
+        <Stack.Screen name="QuestInsulinCorrection" component={QuestInsulinCorrection} />
         <Stack.Screen name="QuestName" component={QuestName} />
         <Stack.Screen name="RegisterOne" component={RegisterOne} />
         <Stack.Screen name="QuestAge" component={QuestAge} />
