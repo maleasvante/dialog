@@ -20,12 +20,13 @@ const Register_one = ({ navigation }) => {
     let exist = null;
     try {
       exist = (await getDoc(doc(db, "usuarios", email)))?.data();
+      console.log(exist);
       if (exist) {
-        navigation.navigate("login", {
+        navigation.navigate("Login", {
           email: email,
         });
       } else {
-        navigation.navigate("sign_up", {
+        navigation.navigate("SignUp", {
           email: email,
         });
       }

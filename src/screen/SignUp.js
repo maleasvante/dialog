@@ -20,11 +20,13 @@ const SingUp = ({ route, navigation }) => {
       return;
     }
 
-    await createUserWithEmailAndPassword(auth, email, password);
+    retorno = createUserWithEmailAndPassword(auth, email, password);
+    console.log(retorno);
     const response = await setDoc(doc(db, "usuarios", email), {
       created_at: Timestamp.now(),
     });
-    navigation.navigate('quest_name');
+    console.log(response);
+    navigation.navigate('questName');
   }
 
   return (
