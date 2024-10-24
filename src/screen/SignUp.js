@@ -26,7 +26,7 @@ const SingUp = ({ route, navigation }) => {
       created_at: Timestamp.now(),
     });
     console.log(response);
-    navigation.navigate('questName');
+    navigation.navigate('QuestName');
   }
 
   return (

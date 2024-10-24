@@ -30,8 +30,8 @@ function Routes() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="App" component={TabNavigation} />
         <Stack.Screen name="RegisterOne" component={RegisterOne} />
+        <Stack.Screen name="App" component={TabNavigation} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Quest5" component={Quest5} />
