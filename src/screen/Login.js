@@ -20,7 +20,7 @@ const Login = ({ route, navigation }) => {
       return Alert.alert("Senha precisa ter no minimo 6 digitos");
     }
     await signInWithEmailAndPassword(auth, email, password);
-    navigation.navigate("App");
+    navigation.navigate("QuestName");
   };
 
   return (

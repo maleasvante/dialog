@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Platform } from 'react-native';
 import DateTimePicker,{ DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+
+import { updateUser } from '../../services/db';
 
 const QuestAge = ({ navigation }) => {
   const [date, setDate] = useState(new Date());
@@ -23,9 +25,8 @@ const QuestAge = ({ navigation }) => {
   };
 
   const handleSubmit = async () => {
-    //const dadosJson = JSON.parse(await AsyncStorage.getItem('dados'));
-    //qdadosJson.date = date;
-    //await AsyncStorage.setItem('dados', JSON.stringify(dadosJson));
+    const resposta = await updateUser({ birthday: date });
+    console.log(resposta);
     navigation.navigate('QuestTherapy'); 
   };
 

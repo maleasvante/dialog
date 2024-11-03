@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { updateUser } from '../../services/db';
 
 const QuestTypeInsulin = ({ navigation }) => {
   const [selectedInsulin, setSelectedInsulin] = useState(null);
 
   const handleInsulinPress = (insulin) => {
-    setSelectedInsulin(insulin);
+    updateUser({ typeInsulin});
     navigation.navigate('App');
   };
 
@@ -17,7 +18,7 @@ const QuestTypeInsulin = ({ navigation }) => {
           style={styles.button}
           onPress={() => handleInsulinPress('Rápida')}
         >
-          <Text style={styles.buttonText}>Rápida</Text>
+          <Text style={styles.buttonText}>Rápida</Text> 
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}

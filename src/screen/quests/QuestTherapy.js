@@ -1,14 +1,12 @@
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { updateUser } from '../../services/db';
 
 const QuestTherapy = ({ navigation }) => {
 
   const handleSubmit = async (tipoTerapiaInsulina) => {
-    const dados = await AsyncStorage.getItem('dados');
-    dados.tipo_terapia = tipoTerapiaInsulina;
-    console.log(dados);
-    await AsyncStorage.setItem('dados', JSON.stringify(dados));
+    await updateUser({ insulinTherapy: tipoTerapiaInsulina });
     navigation.navigate('QuestTypeInsulin');
   }
 

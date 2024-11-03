@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 import { updateUser } from '../../services/db';
@@ -12,8 +11,8 @@ const QuestName = ({ navigation }) => {
   };
 
   const handleSubmit = async () => {
-    const dadosJson = JSON.stringify({name});
-    await AsyncStorage.setItem('dados', dadosJson);
+    const resposta = await updateUser({ name });
+    console.log(resposta);
     navigation.navigate('QuestAge'); 
   };
 
