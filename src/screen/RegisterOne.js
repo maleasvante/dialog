@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -9,18 +9,30 @@ import {
   Alert,
 } from "react-native";
 import { StyleSheet } from "react-native";
-import {} from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../services/firebaseConfig";
+import { getUserData } from "../services/db";
 
 const Register_one = ({ navigation }) => {
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const analyseUserData = async () => {
+
+      const user = await getUserData();
+      console.log(user);
+      if (user) {
+        navigation.navigate('App');
+      }
+    }
+
+    analyseUserData();
+  },[])
 
   const handleEmailSubmit = async () => {
     let exist = null;
     try {
       exist = (await getDoc(doc(db, "usuarios", email)))?.data();
-      console.log(exist);
       if (exist) {
         navigation.navigate("Login", {
           email: email,

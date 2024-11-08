@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { updateUser } from '../../services/db';
 
 const QuestTypeInsulin = ({ navigation }) => {
-  const [selectedInsulin, setSelectedInsulin] = useState(null);
 
   const handleInsulinPress = (insulin) => {
-    updateUser({ typeInsulin});
+    updateUser({ typeInsulin: insulin});
     navigation.navigate('App');
   };
 

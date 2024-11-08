@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { auth, db, storage } from './firebaseConfig';
+import { getAuth } from 'firebase/auth';
 
 
 export async function updateUser(data) {
@@ -30,6 +31,11 @@ export async function updateUser(data) {
 
 	return retorno;
 }
+
+export async function getUserData() {
+	const auth = getAuth();
+	return auth.currentUser;
+};
 
 export default {
 	updateUser
