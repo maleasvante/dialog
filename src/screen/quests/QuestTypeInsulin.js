@@ -6,7 +6,7 @@ const QuestTypeInsulin = ({ navigation }) => {
 
   const handleInsulinPress = (insulin) => {
     updateUser({ typeInsulin: insulin});
-    navigation.navigate('App');
+    navigation.navigate('Quest5');
   };
 
   return (

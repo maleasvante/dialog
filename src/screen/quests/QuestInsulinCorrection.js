@@ -12,19 +12,15 @@ const QuestInsulinCorrection = ({ navigation }) => {
   };
 
   const handleSubmit = async () => {
-    const dadosJson = JSON.stringify({name});
-    await AsyncStorage.setItem('dados', dadosJson);
-    navigation.navigate('QuestAge'); 
+    await updateUser({name: name})
+    navigation.navigate('App'); 
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Qual sua relação carboidratos / insulina?
-      </Text>
       <View style={styles.form}>
         <Text style={styles.label}>
-          Como você gostaria de ser chamado?
+        Qual seu fator de correção de insulina?
         </Text>
         <TextInput
           style={styles.input}

@@ -12,11 +12,8 @@ const QuestCarb = ({ navigation }) => {
   };
 
   const handleSubmit = async () => {
-    const dadosString = await AsyncStorage.getItem('dados');
-    const dados = JSON.parse(dadosString);
-    dados['carboidrato'] = carb;
-    await AsyncStorage.setItem('dados', JSON.stringify(dados));
-    navigation.navigate('QuestAge'); 
+    const resposta = await updateUser({ carb: carb});
+    navigation.navigate('QuestInsulinCorrection'); 
   };
 
   return (

@@ -10,6 +10,7 @@ const Quest5 = ({ navigation }) => {
 
 	const handleSelectFaixaAlvo = (faixa) => {
 		setFaixaAlvo(faixa);
+		navigation.navigate('QuestCarb');
 	};
 
 
@@ -19,7 +20,7 @@ const Quest5 = ({ navigation }) => {
 				Quais são suas faixas-alvo?
 			</Text>
 			<View style={styles.form}>
-				<TouchableOpacity style={styles.button} onPress={() => setFaixaAlvo('180')}>
+				<TouchableOpacity style={styles.button} onPress={() => handleSelectFaixaAlvo('180')}>
 					<View style={{ alignItems: 'center', justifyContent: 'center', gap: 4, width: '100%' }}>
 						<View style={styles.row}>
 							<Entypo name='triangle-up' size={32} color="#B9B0D9" />
@@ -30,7 +31,7 @@ const Quest5 = ({ navigation }) => {
 						</View>
 					</View>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.button} onPress={() => setFaixaAlvo('90-160')}>
+				<TouchableOpacity style={styles.button} onPress={() => handleSelectFaixaAlvo('90-160')}>
 					<View style={{ alignItems: 'center', justifyContent: 'center', gap: 4, width: '100%' }}>
 						<View style={styles.row}>
 							<Entypo name='controller-record' size={26} color="#B9B0D9" />
@@ -41,7 +42,7 @@ const Quest5 = ({ navigation }) => {
 						</View>
 					</View>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.button} onPress={() => setFaixaAlvo('90-160')}>
+				<TouchableOpacity style={styles.button} onPress={() => handleSelectFaixaAlvo('90-160')}>
 					<View style={{ alignItems: 'center', justifyContent: 'center', gap: 4, width: '100%' }}>
 						<View style={styles.row}>
 							<Entypo name='triangle-down' size={32} color="#B9B0D9" />
